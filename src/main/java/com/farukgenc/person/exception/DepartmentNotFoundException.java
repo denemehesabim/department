@@ -2,7 +2,7 @@ package com.farukgenc.person.exception;
 
 public class DepartmentNotFoundException extends Exception {
 
-	private static final long serialVersionUID = -6064481390332731788L;
+	private static final long serialVersionUID = 6779917851169430441L;
 
 	private String errorCode;
 	private String description;
