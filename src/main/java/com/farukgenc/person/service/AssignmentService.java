@@ -1,5 +1,6 @@
 package com.farukgenc.person.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,23 +41,26 @@ public class AssignmentService {
 		departmentRepository.save(department.get());
 		return assignmentResource;
 	}
-	
+
 	public SuccessAssignmentResource assignDepartmentSuccess(AssignmentResource assignmentResource) {
 		List<Person> person = personRepository.findByIdIn(assignmentResource.getPersonIdList());
 		Optional<Department> department = departmentRepository.findById(assignmentResource.getDepartmentId());
 		department.get().setPerson(person);
+		PersonResource personResource = new PersonResource();
+		List<PersonResource> personList = new ArrayList<>();
 		person.forEach(p -> {
 			p.setDepartment(department.get());
 			personRepository.save(p);
+			personResource.setName(p.getName());
+			personResource.setPersonId(p.getId());
+			personResource.setSurname(p.getSurname());
+			personList.add(personResource);
 		});
 		departmentRepository.save(department.get());
-		
-		PersonResource personResource = new PersonResource();
-		
-		
-		
+
 		SuccessAssignmentResource successAssignmentResource = new SuccessAssignmentResource();
+		successAssignmentResource.setPersonList(personList);
 		return successAssignmentResource;
 	}
-	
+
 }
