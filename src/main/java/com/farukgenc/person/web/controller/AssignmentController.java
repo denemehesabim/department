@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.farukgenc.person.service.AssignmentService;
 import com.farukgenc.person.web.resources.AssignmentResource;
+import com.farukgenc.person.web.resources.SuccessAssignmentResource;
 
 @RestController
 @RequestMapping("/person/addDepartment")
@@ -21,27 +22,16 @@ public class AssignmentController {
 		this.assignmentService = assignmentService;
 	}
 
+//	@PostMapping
+//	public ResponseEntity<AssignmentResource> assignmentDepartment(
+//			@RequestBody AssignmentResource assignmentResource) {
+//		return ResponseEntity.ok().body(assignmentService.assignmentDepartment(assignmentResource));
+//	}
+	
 	@PostMapping
-	public ResponseEntity<AssignmentResource> assignmentDepartment(
+	public ResponseEntity<SuccessAssignmentResource> assignmentDepartmentSuccess(
 			@RequestBody AssignmentResource assignmentResource) {
-		return ResponseEntity.ok().body(assignmentService.assignmentDepartment(assignmentResource));
+		return ResponseEntity.ok().body(assignmentService.assignDepartmentSuccess(assignmentResource));
 	}
-
-	/*
-	 * /person/addDepartment
-	 * 
-	 * { "personId": 1, "departmentId" 2 }
-	 * 
-	 * Result;
-	 * 
-	 * return SuccessAssignmentResource
-	 * 
-	 * {
-	 * 
-	 * "personId": "1", "name" : "Faruk", "surname": "Genç", "department": {
-	 * "departmentId": 2, "departmentName" : "Arge" } }
-	 * 
-	 * 
-	 */
 
 }

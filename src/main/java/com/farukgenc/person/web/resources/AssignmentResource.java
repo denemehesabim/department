@@ -4,20 +4,18 @@ import java.util.List;
 
 import org.springframework.hateoas.ResourceSupport;
 
-import com.farukgenc.person.domain.Person;
-
 public class AssignmentResource extends ResourceSupport {
 
-	private List<Person> personId;
+	private List<Long> personIdList;
 
 	private Long departmentId;
 
-	public List<Person> getPersonId() {
-		return personId;
+	public List<Long> getPersonIdList() {
+		return personIdList;
 	}
 
-	public void setPersonId(List<Person> personId) {
-		this.personId = personId;
+	public void setPersonIdList(List<Long> personIdList) {
+		this.personIdList = personIdList;
 	}
 
 	public Long getDepartmentId() {

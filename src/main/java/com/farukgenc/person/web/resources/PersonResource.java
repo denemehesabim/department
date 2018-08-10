@@ -10,6 +10,8 @@ public class PersonResource extends ResourceSupport {
 
 	private String surname;
 
+	private DepartmentResource departmentResource;
+
 	public Long getPersonId() {
 		return personId;
 	}
@@ -32,6 +34,14 @@ public class PersonResource extends ResourceSupport {
 
 	public void setSurname(String surname) {
 		this.surname = surname;
+	}
+
+	public DepartmentResource getDepartmentResource() {
+		return departmentResource;
+	}
+
+	public void setDepartmentResource(DepartmentResource departmentResource) {
+		this.departmentResource = departmentResource;
 	}
 
 }

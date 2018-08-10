@@ -2,8 +2,10 @@ package com.farukgenc.person.domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,14 +16,14 @@ import javax.persistence.Table;
 @Table(name = "DEPARTMENT")
 public class Department {
 
-	@OneToMany
+	@OneToMany(mappedBy = "department", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Person> person;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "DEPARTMENT_ID")
+	@Column(name = "DEPARTMENT_ID", unique = true)
 	private String name;
 
 	public Long getId() {

@@ -1,49 +1,19 @@
 package com.farukgenc.person.web.resources;
 
-import org.springframework.hateoas.ResourceSupport;
+import java.util.List;
 
-import com.farukgenc.person.domain.Department;
+import org.springframework.hateoas.ResourceSupport;
 
 public class SuccessAssignmentResource extends ResourceSupport {
 
-	private Long personId;
+	private List<PersonResource> personList;
 
-	private String name;
-
-	private String surname;
-
-	private Department department;
-
-	public Long getPersonId() {
-		return personId;
+	public List<PersonResource> getPersonList() {
+		return personList;
 	}
 
-	public void setPersonId(Long personId) {
-		this.personId = personId;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getSurname() {
-		return surname;
-	}
-
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
-
-	public Department getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(Department department) {
-		this.department = department;
+	public void setPersonList(List<PersonResource> personList) {
+		this.personList = personList;
 	}
 
 }

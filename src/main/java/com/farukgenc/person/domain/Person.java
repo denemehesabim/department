@@ -2,22 +2,25 @@ package com.farukgenc.person.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="PERSON")
+@Table(name = "PERSON")
 public class Person {
-
-	@ManyToOne
-	private Department department;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@JoinColumn(name = "DEPARTMENT_ID", referencedColumnName = "ID")
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Department department;
 
 	@Column(name = "PERSON_NAME")
 	private String name;
